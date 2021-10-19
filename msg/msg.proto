@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+
+package msg;
+
+
+option go_package = "./msg";
+message Msg {
+
+        // repeated означает slice
+        string name = 1;
+}
+
+message SliceMsg {
+
+        // repeated означает slice
+        repeated string name = 1;
+}
+service Service {
+        rpc List(Msg) returns (SliceMsg) {}
+        rpc Add(Msg) returns (Msg) {}
+        rpc Delete(Msg) returns (Msg) {}
+}
+
