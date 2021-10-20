@@ -17,10 +17,12 @@ import (
 	"net"
 )
 
-var db *sql.DB
-var pool = newPool()
-var client redis.Conn
-var stm *sql.Stmt
+var (
+	db     *sql.DB
+	pool   = newPool()
+	client redis.Conn
+	stm    *sql.Stmt
+)
 
 type server struct {
 	pb.UnimplementedServiceServer
